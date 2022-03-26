@@ -14,7 +14,7 @@ If you have any questions, suggestions, or want to collaborate please don't hesi
 **Please cite our work as:**
 ````
 @article{Hofstaetter2022_colberter,
- author = {Sebastian Hofst{\"a}tter and Khattab, Omar and Althammer, Sophia and Sertkan, Mete and Hanbury, Allan},
+ author = {Sebastian Hofst{\"a}tter and Omar Khattab and Sophia Althammer and Mete Sertkan and Allan Hanbury},
  title = {Introducing Neural Bag of Whole-Words with ColBERTer: Contextualized Late Interactions using Enhanced Reduction},
  publisher = {arXiv},
  url = {https://arxiv.org/abs/2203.13088},
@@ -35,6 +35,12 @@ We provide the following full-trained 6 layer DistilBERT-based models via the Hu
     This is the instance from the paper trained with a batch size of 256.
     The DistilBERT architecture should work as plug 'n play everywhere you use the transformer library. For a minimal usage example of the BERT<sub>DOT</sub> model check out our notebook [minimal_bert_dot_usage_example.ipynb](minimal_bert_dot_usage_example.ipynb) here or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastian-hofstaetter/tas-balanced-dense-retrieval/blob/master/minimal_bert_dot_usage_example.ipynb)
 -->
+
+## BOW<sup>2</sup> Bag of Whole-Words
+
+A main contribution of ColBERTer is the aggregation from sub-words to unique whole-words. This is accomplished with a new [BOW2Tokenizer](bow2_tokenizer.py) (which wraps a HuggingFace tokenizer) and a few lines of pytorch code. This technique is definitely not limited to the ColBERTer architecture, and could potentially be build into many other models. Therefore, we provide a minimal usage example, that shows how to use the tokenizer + the aggregation code only: [bow2_tokenizer_example.ipynb](bow2_tokenizer_example.ipynb)
+
+*Here, we aggregate into a bag of whole-words, where 1 word only appears 1 time in the output -> the tokenizer could easily be changed to keep the positions of whole words intact, if that is necessary.*
 
 ## Full Source Code
 
