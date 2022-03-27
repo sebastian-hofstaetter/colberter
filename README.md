@@ -27,14 +27,19 @@ If you have any questions, suggestions, or want to collaborate please don't hesi
 
 We provide the following full-trained 6 layer DistilBERT-based models via the HuggingFace model hub:
 
-*Coming soon*
 
-<!--
-* **TAS-B DistilBERT<sub>DOT</sub>** (re-ranking and dense-retrieval model): https://huggingface.co/sebastian-hofstaetter/distilbert-dot-tas_b-b256-msmarco
+* **ColBERTer<sub>CLS:128,BOW<sup>2</sup>:32</sub>** https://huggingface.co/sebastian-hofstaetter/colberter-128-32-msmarco
 
-    This is the instance from the paper trained with a batch size of 256.
-    The DistilBERT architecture should work as plug 'n play everywhere you use the transformer library. For a minimal usage example of the BERT<sub>DOT</sub> model check out our notebook [minimal_bert_dot_usage_example.ipynb](minimal_bert_dot_usage_example.ipynb) here or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastian-hofstaetter/tas-balanced-dense-retrieval/blob/master/minimal_bert_dot_usage_example.ipynb)
--->
+    This instance is trained on MSMARCO-v1, using contextualized stopwords (and removes around 29% of the whole-words), the BOW<sup>2</sup> component matches all words per document (no exact matching enabled).
+    
+    For a minimal usage example of the ColBERTer model check out  [our notebook here](minimal_colberter_usage_example.ipynb) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastian-hofstaetter/colberter/blob/master/minimal_colberter_usage_example.ipynb)
+
+* **Uni-ColBERTer<sub>CLS:128,BOW<sup>2</sup>:1 with EM</sub>** https://huggingface.co/sebastian-hofstaetter/uni-colberter-128-1-msmarco
+
+    This instance is trained on MSMARCO-v1, using contextualized stopwords (and removes around 50% of the whole-words), the BOW<sup>2</sup> component matches only exact word-matches between query & document.
+    
+    For a minimal usage example of the Uni-ColBERTer model check out  [our notebook here](minimal_colberter_usage_example.ipynb) or [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sebastian-hofstaetter/colberter/blob/master/minimal_colberter_usage_example.ipynb)
+
 
 ## BOW<sup>2</sup> Bag of Whole-Words
 
